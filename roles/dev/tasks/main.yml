@@ -1,0 +1,33 @@
+- name: Install docker
+  pacman: name={{ item }}
+  with_items:
+    - docker
+    - docker-compose
+    - docker-machine
+  become: yes
+
+- name: Ensure docker service is running
+  service: name=docker state=started enabled=yes
+  become: yes
+
+- name: Install Visual Studio code
+  aur: name=visual-studio-code-bin user=robin
+  become: yes
+
+- name: Install debugger tools
+  pacman: name={{ item }}
+  with_items:
+    - gdb
+    - gdb-common
+    - valgrind
+  become: yes
+
+- name: Install extra languages
+  pacman: name={{ item }}
+  with_items:
+    - go
+    - nodejs
+    - npm
+    - rust
+  become: yes
+
