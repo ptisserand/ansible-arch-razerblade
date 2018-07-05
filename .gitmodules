@@ -1,0 +1,3 @@
+[submodule "external/ansible-aur"]
+	path = external/ansible-aur
+	url = https://github.com/pigmonkey/ansible-aur
