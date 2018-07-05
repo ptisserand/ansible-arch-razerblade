@@ -1,0 +1,13 @@
+- name: Install hexchat
+  pacman: name=hexchat
+  become: yes
+
+- name: Install browsers and email
+  pacman: name={{ item }}
+  with_items:
+    - thunderbird
+    - thunderbird-i18n-fr
+    - firefox
+    - chromium
+  become: yes
+
