@@ -1,0 +1,27 @@
+- name: Install bumblebee & nvidia
+  pacman: name={{ item }}
+  with_items:
+    - bumblebee
+    - primus
+    - nvidia
+    - nvidia-utils
+    - virtualgl
+  become: yes
+
+  #- name: Bumblebee configuration
+  #copy:
+  #  - content: "Driver=nvidia"
+  #  - dest: "/
+
+- name: Install thunderbolt tools
+  aur: name=bolt user=robin
+  become: yes
+
+- name: Install extra tools
+  aur: name={{ item }} user=robin
+  with_items:
+    - dpkg
+    - glxgears
+    - glxinfo
+  become: yes
+
