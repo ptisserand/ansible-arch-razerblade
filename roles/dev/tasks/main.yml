@@ -22,6 +22,12 @@
     - valgrind
   become: yes
 
+- name: Extra tools
+  pacman: name={{ item }}
+  with_items:
+    - tig
+  become: yes
+
 - name: Install extra languages
   pacman: name={{ item }}
   with_items:
@@ -29,5 +35,6 @@
     - nodejs
     - npm
     - rust
+    - jdk8-openjdk
   become: yes
 
