@@ -1,0 +1,14 @@
+- name: Install alsa utils
+  pacman: name=alsa-utils
+  become: yes
+
+- name: Install pulseaudio
+  pacman: name={{ item }}
+  with_items:
+    - pulseaudio
+    - pulseaudio-alsa
+    - pulseaudio-jack
+    - pulseaudio-bluetooth
+    - pavucontrol
+  become: yes
+
