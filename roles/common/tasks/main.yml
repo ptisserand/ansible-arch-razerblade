@@ -1,0 +1,12 @@
+- name: Install snap
+  aur: name=snapd user=robin
+  become: yes
+
+- name: Enable snapd service
+  systemd:
+    name: snapd.socket
+    enabled: yes
+    state: started
+    user: no
+  become: yes
+
