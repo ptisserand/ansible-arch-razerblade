@@ -1,0 +1,24 @@
+- hosts: all
+
+  roles:
+    - common
+    - dev
+    - com
+    - razer
+    - multimedia
+
+  tasks:
+    - name: Install packages
+      pacman: name={{ item }}
+      with_items:
+        - vim
+        - xlockmore
+        - tmux
+        - tlp
+        - tlp-rdw
+        - git
+      become: yes
+    - name: Linux/windows time issue
+      command: timedatectl set-local-rtc 1 --adjust-system-clock
+      become: yes
+
