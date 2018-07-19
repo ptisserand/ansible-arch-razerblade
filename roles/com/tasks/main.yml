@@ -11,3 +11,24 @@
     - chromium
   become: yes
 
+- name: systemD user ssh-agent service
+  copy:
+    src: ssh-agent.service
+    dest: ~/.config/systemd/user/ # directory is created if ended by '/'
+
+- name: Enable systemD user ssh-agent service
+  systemd:
+    name: ssh-agent
+    enabled: yes
+    state: started
+    user: yes
+
+- name: pam environment for SSH
+  lineinfile:
+    path: ~/.pam_environment
+    state: present
+    backup: yes
+    create: yes
+    regexp: '^SSH_AUTH_SOCK DEFAULT='
+    line: 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"'
+
