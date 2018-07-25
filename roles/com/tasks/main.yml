@@ -1,5 +1,8 @@
-- name: Install hexchat
-  pacman: name=hexchat
+- name: Install chat apps
+  pacman: name={{ item }}
+  with_items:
+    - hexchat
+    - telegram-desktop
   become: yes
 
 - name: Install browsers and email
@@ -9,6 +12,13 @@
     - thunderbird-i18n-fr
     - firefox
     - chromium
+  become: yes
+
+- name: Install chrome and widevine
+  aur: name={{ item }} user=robin
+  with_items:
+    - google-chrome
+    - chromium-widevine
   become: yes
 
 - name: systemD user ssh-agent service
