@@ -10,3 +10,9 @@
     user: no
   become: yes
 
+- name: Viewers
+  pacman: name={{ item }}
+  with_items:
+    - evince
+  become: yes
+
