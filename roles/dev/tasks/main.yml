@@ -20,6 +20,7 @@
     - gdb
     - gdb-common
     - valgrind
+    - strace
   become: yes
 
 - name: Extra tools
