@@ -23,10 +23,18 @@
     - strace
   become: yes
 
+- name: Serial tools
+  pacman: name={{ item }}
+  with_items:
+    - ckermit
+    - screen
+  become: yes
+
 - name: Extra tools
   pacman: name={{ item }}
   with_items:
     - tig
+    - hexedit
   become: yes
 
 - name: Install extra languages
