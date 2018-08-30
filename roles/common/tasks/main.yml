@@ -16,3 +16,11 @@
     - evince
   become: yes
 
+- name: Spell checker
+  pacman: name={{ item }}
+  with_items:
+    - hunspell
+    - hunspell-en_US
+    - hunspell-fr
+  become: yes
+
