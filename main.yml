@@ -18,7 +18,10 @@
         - tlp
         - tlp-rdw
         - git
+        - wget
+        - curl
       become: yes
+
     - name: Linux/windows time issue
       command: timedatectl set-local-rtc 1 --adjust-system-clock
       become: yes
