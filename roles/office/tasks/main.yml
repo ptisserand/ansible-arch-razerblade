@@ -2,3 +2,12 @@
   pacman: name=libreoffice-fresh
   become: yes
 
+- name: HP Laserjet
+  pacman: name={{ item }}
+  with_items:
+    - cups
+    - hplip
+    - system-config-printer
+    - gtk3-print-backends
+  become: yes
+
