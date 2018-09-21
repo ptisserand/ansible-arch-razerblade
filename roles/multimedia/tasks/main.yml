@@ -1,3 +1,9 @@
+- name: Install extra for filesystems
+  pacman: name={{ item }}
+  with_items:
+    - exfat-utils
+  become: yes
+
 - name: Install alsa utils
   pacman: name=alsa-utils
   become: yes
@@ -11,4 +17,16 @@
     - pulseaudio-bluetooth
     - pavucontrol
   become: yes
+
+  # 2018-07-19: FIXME: snap install require snap login before
+# - name: Install spotify
+#    command: snap install spotify
+
+- name: player controls
+  pacman: name={{ item }}
+  with_items:
+    - playerctl
+    - xbindkeys
+  become: yes
+
 
