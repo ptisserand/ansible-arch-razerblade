@@ -25,3 +25,7 @@
     - glxinfo
   become: yes
 
+- name: Install support for dual boot
+  aur: name=dislocker user=robin
+  become: yes
+
