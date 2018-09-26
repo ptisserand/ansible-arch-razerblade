@@ -21,6 +21,7 @@
         - git
         - wget
         - curl
+        - tree
       become: yes
 
     - name: Linux/windows time issue
