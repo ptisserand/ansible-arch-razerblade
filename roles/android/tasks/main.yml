@@ -1,0 +1,36 @@
+- name: Install Android studio and sdk
+  aur: name={{ item }} user=robin
+  with_items:
+    - android-studio
+    - android-sdk
+    - android-sdk-build-tools
+    - android-sdk-platform-tools
+    - android-tools
+  #  - android-emulator
+  become: yes
+
+- name: Ensure group {{ android_group }} exist
+  group: 
+    name: "{{android_group}}" 
+    state: present
+    system: yes
+  become: yes
+
+- name: Setup permission for android directories
+  file:
+    dest: "{{item}}"
+    group: "{{android_group}}"
+    mode: g+w
+    recurse: yes
+  with_items:
+    - /opt/android-sdk
+    - /opt/android-studio
+  become: yes
+
+- name: Add '{{ ansible_user_id }}' to group '{{ android_group }}'
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: "{{ android_group }}"
+    append: yes
+  become: yes
+
