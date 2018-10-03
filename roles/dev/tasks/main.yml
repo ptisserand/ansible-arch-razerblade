@@ -47,3 +47,10 @@
     - jdk8-openjdk
   become: yes
 
+- name: Python extra
+  pacman: name={{ item }}
+  with_items:
+    - python-virtualenv
+    - python2-virtualenv
+  become: yes
+
