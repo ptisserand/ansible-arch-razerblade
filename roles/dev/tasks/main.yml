@@ -54,3 +54,13 @@
     - python2-virtualenv
   become: yes
 
+- name: QT5
+  pacman: name={{ item }}
+  with_items:
+    - qt5-base
+    - qt5-tools
+    - qt5-declarative
+    - python-pyqt5
+    - qtcreator
+  become: yes
+
