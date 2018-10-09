@@ -24,7 +24,13 @@
         - tree
       become: yes
 
+    - name: Check RTC in local time zone
+      shell: "timedatectl | grep -q 'RTC in local TZ: yes'"
+      register: rtc_in_local_time_zone
+      ignore_errors: True
+
     - name: Linux/windows time issue
       command: timedatectl set-local-rtc 1 --adjust-system-clock
+      when: not rtc_in_local_time_zone
       become: yes
 
