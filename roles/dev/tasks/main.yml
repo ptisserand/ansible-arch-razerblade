@@ -64,3 +64,22 @@
     - qtcreator
   become: yes
 
+- name: QT5 extra
+  pacman: name={{ item }}
+  with_items:
+    - qt5-charts
+    - qt5-connectivity
+    - qt5-networkauth
+    - qt5-serialport
+    - qt5-websockets
+  become: yes
+
+- name: Virtualization
+  pacman: name={{ item }}
+  with_items:
+    - virt-manager
+    - virt-viewer
+    - virt-install
+    - libvirt-python
+  become: yes
+
