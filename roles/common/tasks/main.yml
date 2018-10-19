@@ -24,3 +24,10 @@
     - hunspell-fr
   become: yes
 
+- name: Compression
+  pacman: name={{ item }}
+  with_items:
+    - unzip
+    - p7zip
+  become: yes
+
