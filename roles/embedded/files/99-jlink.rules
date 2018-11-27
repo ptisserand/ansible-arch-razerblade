@@ -1,0 +1,6 @@
+ACTION!="add", SUBSYSTEM!=="usb_device", GOTO="jlink_rules_end"
+
+# TODO: create a group specific for jlink segger
+ATTR{idVendor}=="1366", ATTR{idProduct}=="1015", MODE="666"
+
+LABEL="jlink_rules_end"

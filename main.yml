@@ -8,6 +8,7 @@
     - razer
     - multimedia
     - android
+    - embedded
 
   tasks:
     - name: Install packages

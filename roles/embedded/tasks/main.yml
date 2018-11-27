@@ -1,0 +1,11 @@
+- name: Setup Udev permission for SEGGER Jlink on rigado board
+  copy:
+    src: 99-jlink.rules
+    dest: /etc/udev/rules.d/  
+  register: jlink
+  become: yes
+
+- name: Reload udev rules
+  shell: udevadm trigger
+  when: jlink.changed
+  become: yes
