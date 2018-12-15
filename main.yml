@@ -23,6 +23,7 @@
         - wget
         - curl
         - tree
+        - rsync
       become: yes
 
     - name: Check RTC in local time zone
