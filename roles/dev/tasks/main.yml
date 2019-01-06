@@ -23,6 +23,10 @@
     - strace
   become: yes
 
+- name: Extra development tools
+  pacman: name=splint
+  become: yes
+
 - name: Serial tools
   pacman: name={{ item }}
   with_items:
