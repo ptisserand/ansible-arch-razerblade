@@ -32,6 +32,7 @@
   with_items:
     - ckermit
     - screen
+    - lrzsz
   become: yes
 
 - name: Extra tools
