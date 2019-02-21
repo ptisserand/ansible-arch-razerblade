@@ -25,6 +25,11 @@
         - tree
         - rsync
       become: yes
+    - name: Pacman related
+      pacman: name={{ item }}
+      with_items:
+        - reflector
+      become: yes
 
     - name: Check RTC in local time zone
       shell: "timedatectl | grep -q 'RTC in local TZ: yes'"
