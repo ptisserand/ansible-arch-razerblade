@@ -40,6 +40,7 @@
   with_items:
     - tig
     - hexedit
+    - jq
   become: yes
 
 - name: Install extra languages
