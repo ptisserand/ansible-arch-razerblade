@@ -51,6 +51,7 @@
     - npm
     - rust
     - jdk8-openjdk
+    - gradle
   become: yes
 
 - name: Python extra
