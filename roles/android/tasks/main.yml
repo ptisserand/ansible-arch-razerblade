@@ -34,3 +34,7 @@
     append: yes
   become: yes
 
+- name: USB permission for Android debug
+  pacman: name="android-udev"
+  become: yes
+
