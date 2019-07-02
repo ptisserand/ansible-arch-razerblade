@@ -21,8 +21,7 @@
   aur: name={{ item }} user=robin
   with_items:
     - dpkg
-    - glxgears
-    - glxinfo
+    - mesa-demos
   become: yes
 
 - name: Install support for dual boot
