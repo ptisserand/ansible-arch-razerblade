@@ -42,3 +42,10 @@
     regexp: '^SSH_AUTH_SOCK DEFAULT='
     line: 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"'
 
+- name: wireshark
+  pacman: name={{ item }}
+  with_items:
+    - wireshark-cli
+    - wireshark-qt
+  become: yes
+
