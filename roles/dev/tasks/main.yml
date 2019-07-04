@@ -90,6 +90,8 @@
     - libvirt-python
     - qemu
     - qemu-arch-extra
+    - ebtables
+    - dnsmasq
   become: yes
 
 - name: Virtualization group
