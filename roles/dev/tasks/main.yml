@@ -88,5 +88,14 @@
     - virt-viewer
     - virt-install
     - libvirt-python
+    - qemu
+    - qemu-arch-extra
+  become: yes
+
+- name: Virtualization group
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: libvirt
+    append: yes
   become: yes
 
