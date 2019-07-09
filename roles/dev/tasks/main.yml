@@ -52,6 +52,7 @@
     - rust
     - jdk8-openjdk
     - gradle
+    - yasm
   become: yes
 
 - name: Python extra
